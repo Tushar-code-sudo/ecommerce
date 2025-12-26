@@ -160,6 +160,9 @@ app.use("/", authRoutes);
 //   }
 // });
 
+app.get("/health", function () {
+  res.send("server is healthy ");
+});
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
