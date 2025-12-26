@@ -160,8 +160,8 @@ app.use("/", authRoutes);
 //   }
 // });
 
-app.get("/health", function () {
-  res.send("server is healthy ");
+app.get("/health", (req, res) => {
+  res.send("this is home hello,welcome to the home");
 });
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
