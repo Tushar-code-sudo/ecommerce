@@ -23,17 +23,20 @@ app.use(
   }),
 );
 const registeredUser = require("./models/User");
+const registeredAdmin = require("./models/adminDatabase/registeredAdmin");
 
 app.use(express.json());
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 const apiLogger = require("./middleware/loggerMiddleware");
 const authRoutes = require("./routes/authRoutes");
+const adminAuthRoutes = require("./routes/adminAuthRoutes");
 app.use(apiLogger);
 // use router
 app.use("/", authRoutes);
 app.use("/landingPage", products);
 app.use("/todo", todoList);
+app.use("/admin", adminAuthRoutes);
 
 // app.use("/home", products);
 // app.use((req, res, next) => {
